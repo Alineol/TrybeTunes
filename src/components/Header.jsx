@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { getUser } from '../services/userAPI';
 import Charging from './Charging';
 
@@ -32,7 +33,18 @@ export default class Header extends React.Component {
     if (loading === false && getUserName === true) {
       return (
         <header data-testid="header-component">
-          <p data-testid="header-user-name">{userName}</p>
+          <div data-testid="header-user-name">{userName}</div>
+          <div className="links">
+            <button type="button">
+              <Link to="/search" data-testid="link-to-search">Voltar para pesquisa</Link>
+            </button>
+            <button type="button">
+              <Link to="/favorites" data-testid="link-to-favorites">Favoritas</Link>
+            </button>
+            <button type="button">
+              <Link to="/profile" data-testid="link-to-profile">Perfil</Link>
+            </button>
+          </div>
         </header>
       );
     }
