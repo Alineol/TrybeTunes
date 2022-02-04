@@ -1,5 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import Charging from '../components/Charging';
 import Header from '../components/Header';
+import searchAlbumsAPI from '../services/searchAlbumsAPI';
 
 export default class Search extends React.Component {
   constructor() {
@@ -7,6 +10,10 @@ export default class Search extends React.Component {
     this.state = {
       disabled: true,
       searchInput: '',
+      loading: false,
+      searcResult: '',
+      resultNotFound: 0,
+      searchName: '',
     };
   }
 
@@ -24,13 +31,71 @@ export default class Search extends React.Component {
     } return true;
   }
 
-  render() {
-    const { disabled, searchInput } = this.state;
+  onClickButton = async (event) => {
+    event.preventDefault();
+    const { searchInput } = this.state;
+    this.setState({
+      searchName: searchInput,
+      loading: true,
+      searchInput: '',
+    });
+    const resultSearch = await searchAlbumsAPI(searchInput);
+    if (resultSearch.length > 0) {
+      this.setState({
+        loading: false,
+        searcResult: resultSearch,
+      });
+    }
+    if (resultSearch.length === 0) {
+      this.setState({
+        loading: false,
+        resultNotFound: true,
+      });
+    }
+  }
+
+  checkResult = () => {
+    const { loading, resultNotFound } = this.state;
+    if (loading === false && resultNotFound === true) {
+      return true;
+    }
+  }
+
+  results = () => {
+    const { searcResult, searchName } = this.state;
     return (
-      <div data-testid="page-search">
-        <Header />
-        SearchPage
-        <form>
+      <>
+        <p>
+          {`Resultado de álbuns de: ${searchName}`}
+        </p>
+        {searcResult.map((album) => (
+          <Link
+            key={ album.collectionId }
+            data-testid={ `link-to-album-${album.collectionId}` }
+            to={ `album/${album.collectionId}` }
+          >
+            <div className="div-album">
+              <p>{`Álbum:${album.collectionName}`}</p>
+              <img
+                src={ album.artworkUrl100 }
+                alt={ `Imagem do ${album.collectionName}` }
+              />
+            </div>
+          </Link>
+        ))}
+      </>
+    );
+  }
+
+  render() {
+    const {
+      disabled, searchInput, loading, searcResult,
+    } = this.state;
+    const messenger = (<h1>Nenhum álbum foi encontrado</h1>);
+    const noResult = this.checkResult();
+    const form = (
+      <>
+        <form onSubmit={ this.onClickButton }>
           <div>
             <input
               type="text"
@@ -47,6 +112,15 @@ export default class Search extends React.Component {
             </button>
           </div>
         </form>
+        <section className="searchResult" />
+        {noResult && messenger}
+        {searcResult.length > 0 && this.results()}
+      </>
+    );
+    return (
+      <div data-testid="page-search">
+        <Header />
+        {loading ? <Charging /> : form }
       </div>
     );
   }
