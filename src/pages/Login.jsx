@@ -70,4 +70,5 @@ class Login extends React.Component {
     if (loading === false && redirect === true) { return <Redirect to="/search" />; }
   }
 }
+
 export default Login;
