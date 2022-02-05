@@ -4,7 +4,7 @@ import Charging from '../components/Charging';
 import Header from '../components/Header';
 import getMusics from '../services/musicsAPI';
 import MusicCard from '../components/MusicCard';
-import { addSong } from '../services/favoriteSongsAPI';
+import { addSong, getFavoriteSongs } from '../services/favoriteSongsAPI';
 
 export default class Album extends React.Component {
   state = {
@@ -20,13 +20,23 @@ export default class Album extends React.Component {
   }
 
   getList = async (id) => {
+    const favoriteSongs = await getFavoriteSongs();
+    const favIds = favoriteSongs.map((songs) => songs.trackId);
+    console.log(favIds);
     const musics = await getMusics(id);
     const onlymusics = musics.filter((item) => item.kind === 'song');
     this.setState({
       album: musics[0],
       musicsList: onlymusics,
+      checked: [...favIds],
     });
+    return favoriteSongs;
   }
+
+  // getFavorits = async () => {
+  //   const favoriteSongs = await getFavoriteSongs();
+  //   return favoriteSongs;
+  // }
 
   onCheck = async ({ target }) => {
     const { musicsList } = this.state;
@@ -49,19 +59,15 @@ export default class Album extends React.Component {
     const { musicsList, checked } = this.state;
     return (
       <section className="musics">
-        {musicsList.map((music) => {
-          // tentei colocar a espressão direto e n funcionou, só funcionou dentro de uma função, ainda não entendi o motivo( funcinou mas n passou no teste)
-          const check = this.isCheked(music.trackId, checked);
-          return (
-            <MusicCard
-              key={ music.trackName }
-              music={ music }
-              musics={ musicsList }
-              onClick={ this.onCheck }
-              checked={ check }
-            />
-          );
-        })}
+        {musicsList.map((music) => (
+          <MusicCard
+            key={ music.trackName }
+            music={ music }
+            musics={ musicsList }
+            onClick={ this.onCheck }
+            checked={ this.isCheked(music.trackId, checked) }
+          />
+        ))}
       </section>
     );
   }
