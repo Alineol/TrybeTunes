@@ -22,7 +22,6 @@ export default class Album extends React.Component {
   getList = async (id) => {
     const favoriteSongs = await getFavoriteSongs();
     const favIds = favoriteSongs.map((songs) => songs.trackId);
-    console.log(favIds);
     const musics = await getMusics(id);
     const onlymusics = musics.filter((item) => item.kind === 'song');
     this.setState({
