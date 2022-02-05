@@ -4,7 +4,7 @@ import Charging from '../components/Charging';
 import Header from '../components/Header';
 import getMusics from '../services/musicsAPI';
 import MusicCard from '../components/MusicCard';
-import { addSong, getFavoriteSongs } from '../services/favoriteSongsAPI';
+import { addSong, getFavoriteSongs, removeSong } from '../services/favoriteSongsAPI';
 
 export default class Album extends React.Component {
   state = {
@@ -32,21 +32,29 @@ export default class Album extends React.Component {
     return favoriteSongs;
   }
 
-  // getFavorits = async () => {
-  //   const favoriteSongs = await getFavoriteSongs();
-  //   return favoriteSongs;
-  // }
-
   onCheck = async ({ target }) => {
-    const { musicsList } = this.state;
+    const { musicsList, checked } = this.state;
     const nId = Number.parseInt(target.id, 10);
-    this.setState((prevState) => ({
-      checked: [...prevState.checked, nId],
-      loading: true,
-    }));
-    const favorite = musicsList.find(({ trackId }) => trackId === nId);
-    await addSong(favorite);
-    this.setState({ loading: false });
+    if (!target.checked) {
+      const selected = musicsList.find(({ trackId }) => trackId === nId);
+      const newState = checked.filter((music) => music !== nId);
+      this.setState(({
+        checked: newState,
+        loading: true,
+      }));
+      await removeSong(selected);
+      this.setState({
+        loading: false,
+      });
+    } else {
+      this.setState((prevState) => ({
+        checked: [...prevState.checked, nId],
+        loading: true,
+      }));
+      const favorite = musicsList.find(({ trackId }) => trackId === nId);
+      await addSong(favorite);
+      this.setState({ loading: false });
+    }
   }
 
   isCheked = (id, state) => {
