@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 export default class MusicCard extends React.Component {
   render() {
-    const { music: { trackName, previewUrl } } = this.props;
+    const { music: { trackName, previewUrl, trackId }, onClick, checked } = this.props;
     return (
       <div className="musicDiv">
         <p>{trackName}</p>
@@ -12,6 +12,16 @@ export default class MusicCard extends React.Component {
           O seu navegador não suporta o elemento
           <code>audio</code>
         </audio>
+        <label htmlFor={ trackId }>
+          Favorita
+          <input
+            type="checkbox"
+            data-testid={ `checkbox-music-${trackId}` }
+            id={ trackId }
+            onChange={ onClick }
+            checked={ checked }
+          />
+        </label>
       </div>
     );
   }
@@ -20,5 +30,8 @@ MusicCard.propTypes = {
   music: PropTypes.shape({
     trackName: PropTypes.string,
     previewUrl: PropTypes.string,
+    trackId: PropTypes.number,
   }).isRequired,
+  onClick: PropTypes.func.isRequired,
+  checked: PropTypes.bool.isRequired,
 };
