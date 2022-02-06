@@ -37,15 +37,12 @@ export default class Profile extends React.Component {
           </Link>
         </div>
         <p>
-          Nome:
           {name}
         </p>
         <p>
-          Email:
           {email}
         </p>
         <p>
-          Descrição:
           {description}
         </p>
         <div />
