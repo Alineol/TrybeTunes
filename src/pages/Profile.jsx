@@ -36,12 +36,15 @@ export default class Profile extends React.Component {
             <button type="button">Editar perfil</button>
           </Link>
         </div>
+        Nome:
         <p>
           {name}
         </p>
+        Email:
         <p>
           {email}
         </p>
+        Descrição:
         <p>
           {description}
         </p>
