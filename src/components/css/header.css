@@ -1,0 +1,35 @@
+.header{
+  background-color: rgb(253, 253, 253);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  width: 100vw;
+}
+
+.name-links {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: nowrap;
+  padding-right: 10px;
+}
+
+.name {
+  margin-right: 5px;
+}
+
+.title {
+  padding-left: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.link {
+  margin-right: 5px;
+  color: black;
+}
+
+img {
+width: 30px;
+height: 30px;
+}

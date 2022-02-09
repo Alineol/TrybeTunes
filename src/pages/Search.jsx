@@ -65,24 +65,28 @@ export default class Search extends React.Component {
     const { searcResult, searchName } = this.state;
     return (
       <>
-        <p>
-          {`Resultado de álbuns de: ${searchName}`}
+        <p className="result-title">
+          {`Resultado de busca por: ${searchName}`}
         </p>
-        {searcResult.map((album) => (
-          <Link
-            key={ album.collectionId }
-            data-testid={ `link-to-album-${album.collectionId}` }
-            to={ `album/${album.collectionId}` }
-          >
-            <div className="div-album">
-              <p>{`Álbum:${album.collectionName}`}</p>
-              <img
-                src={ album.artworkUrl100 }
-                alt={ `Imagem do ${album.collectionName}` }
-              />
-            </div>
-          </Link>
-        ))}
+        <div className="albuns-div">
+          {searcResult.map((album) => (
+            <Link
+              className="album-link"
+              key={ album.collectionId }
+              data-testid={ `link-to-album-${album.collectionId}` }
+              to={ `album/${album.collectionId}` }
+            >
+              <div className="div-album">
+                <img
+                  className="albunsImg"
+                  src={ album.artworkUrl100 }
+                  alt={ `Imagem do ${album.collectionName}` }
+                />
+                <p className="albunsName">{`Álbum: ${album.collectionName}`}</p>
+              </div>
+            </Link>
+          ))}
+        </div>
       </>
     );
   }
@@ -95,8 +99,11 @@ export default class Search extends React.Component {
     const noResult = this.checkResult();
     const form = (
       <>
-        <form onSubmit={ this.onClickButton }>
+        <form onSubmit={ this.onClickButton } className="search-form">
           <div>
+            <p className="title-search">
+              Pesquisar
+            </p>
             <input
               type="text"
               data-testid="search-artist-input"
@@ -108,17 +115,18 @@ export default class Search extends React.Component {
               type="submit"
               disabled={ disabled }
             >
-              Pesquisar
+              Ir
             </button>
           </div>
         </form>
-        <section className="searchResult" />
-        {noResult && messenger}
-        {searcResult.length > 0 && this.results()}
+        <section className="searchResult">
+          {noResult && messenger}
+          {searcResult.length > 0 && this.results()}
+        </section>
       </>
     );
     return (
-      <div data-testid="page-search">
+      <div data-testid="page-search" className="search-page">
         <Header />
         {loading ? <Charging /> : form }
       </div>

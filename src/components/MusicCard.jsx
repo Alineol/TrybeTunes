@@ -7,13 +7,8 @@ export default class MusicCard extends React.Component {
     return (
       <div className="musicDiv">
         <p>{trackName}</p>
-        <audio data-testid="audio-component" src={ previewUrl } controls>
-          <track kind="captions" />
-          O seu navegador não suporta o elemento
-          <code>audio</code>
-        </audio>
         <label htmlFor={ trackId }>
-          Favorita
+          Favoritar
           <input
             type="checkbox"
             data-testid={ `checkbox-music-${trackId}` }
@@ -22,6 +17,11 @@ export default class MusicCard extends React.Component {
             checked={ checked }
           />
         </label>
+        <audio data-testid="audio-component" src={ previewUrl } controls>
+          <track kind="captions" />
+          O seu navegador não suporta o elemento
+          <code>audio</code>
+        </audio>
       </div>
     );
   }

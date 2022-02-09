@@ -2,6 +2,7 @@ import React from 'react';
 import { Redirect } from 'react-router-dom';
 import { createUser } from '../services/userAPI';
 import Charging from '../components/Charging';
+import Imgmusic from './images/giphy.gif';
 
 class Login extends React.Component {
   constructor() {
@@ -28,7 +29,8 @@ class Login extends React.Component {
     } return true;
   }
 
-  onClick = async () => {
+  onClick = async (event) => {
+    event.preventDefault();
     const { userName } = this.state;
     this.setState({ loading: true });
     await createUser({ name: userName });
@@ -42,26 +44,26 @@ class Login extends React.Component {
     const { disabled, loading, redirect } = this.state;
     if (loading === false && redirect === false) {
       return (
-        <div data-testid="page-login">
-          <form>
+        <div className="login-pg" data-testid="page-login">
+          <form className="loginPageForm" onSubmit={ this.onClick }>
+            <h1 className="titleLogin">TrybeTunes</h1>
             <label htmlFor="nameId">
-              Nome:
               <input
                 data-testid="login-name-input"
                 type="text"
                 id="nameId"
                 onChange={ this.onChange }
+                placeholder="insira um nome de usuario"
               />
               <button
-                type="button"
+                type="submit"
                 data-testid="login-submit-button"
                 disabled={ disabled }
-                onClick={ this.onClick }
               >
                 Entrar
               </button>
             </label>
-
+            <img src={ Imgmusic } alt="violão" className="musicImg" />
           </form>
         </div>
       );

@@ -75,10 +75,10 @@ export default class ProfileEdit extends React.Component {
   toRender = () => {
     const { description, email, image, name, redirect } = this.state;
     return (
-      <section className="user-sec">
-        <form>
+      <section className="user-sec-form">
+        <form className="form-edit">
           <label htmlFor="name-input">
-            Nome:
+            <p>Nome: </p>
             <input
               name="name"
               type="text"
@@ -91,7 +91,7 @@ export default class ProfileEdit extends React.Component {
             />
           </label>
           <label htmlFor="email-input">
-            Email:
+            <p>Email: </p>
             <input
               name="email"
               type="email"
@@ -103,7 +103,7 @@ export default class ProfileEdit extends React.Component {
             />
           </label>
           <label htmlFor="description">
-            Descrição
+            <p>Descrição:</p>
             <textarea
               name="description"
               data-testid="edit-input-description"
@@ -113,7 +113,9 @@ export default class ProfileEdit extends React.Component {
             />
           </label>
           <label htmlFor="image-input">
-            Imagem:
+            <p>
+              Imagem:
+            </p>
             <input
               name="image"
               type="text"
@@ -122,6 +124,7 @@ export default class ProfileEdit extends React.Component {
               id='"image-input"'
               onChange={ this.handleChange }
               value={ image }
+              placeholder="insira o link"
             />
           </label>
           <button

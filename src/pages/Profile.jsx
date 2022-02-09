@@ -26,27 +26,25 @@ export default class Profile extends React.Component {
     const { user: { description, email, image, name } } = this.state;
     return (
       <section className="user-sec">
-        <div>
+        <div className="user-img-div">
           <img
             src={ image }
             alt="Imagem do usuario"
             data-testid="profile-image"
+            className="user-img"
           />
           <Link to="/profile/edit">
             <button type="button">Editar perfil</button>
           </Link>
         </div>
-        Nome:
         <p>
-          {name}
+          {`Nome: ${name}`}
         </p>
-        Email:
         <p>
-          {email}
+          {`Email: ${email}`}
         </p>
-        Descrição:
         <p>
-          {description}
+          {`Descrição: ${description}`}
         </p>
         <div />
       </section>
@@ -58,7 +56,9 @@ export default class Profile extends React.Component {
     return (
       <div data-testid="page-profile">
         <Header />
-        {loading ? <Charging /> : this.toRender()}
+        <div className="user-info">
+          {loading ? <Charging /> : this.toRender()}
+        </div>
       </div>
     );
   }

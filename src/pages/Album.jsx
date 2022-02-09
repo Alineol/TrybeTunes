@@ -85,13 +85,18 @@ export default class Album extends React.Component {
     const { artistName, artworkUrl100, collectionName } = album;
     return (
       <div className="Informations">
-        <p data-testid="album-name">{ collectionName }</p>
-        <p data-testid="artist-name">{ artistName }</p>
-        <img
-          src={ artworkUrl100 }
-          alt="imagem do album"
-        />
-        {loading ? <Charging /> : this.createCards()}
+        <div className="musicsList">
+          {loading ? <Charging /> : this.createCards()}
+        </div>
+        <div className="album-info">
+          <p data-testid="album-name">{ collectionName }</p>
+          <p data-testid="artist-name">{ artistName }</p>
+          <img
+            className="album-img"
+            src={ artworkUrl100 }
+            alt="imagem do album"
+          />
+        </div>
       </div>
     );
   }

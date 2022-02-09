@@ -1,0 +1,203 @@
+.loginPageForm {
+  background-color: rgb(255, 255, 255);
+  border-radius: 20px;
+  display: flex;
+  height: 40vw;
+  justify-content: flex-start;
+  margin-top: 20px;
+  width: 50vw;
+  flex-direction: column;
+  align-items: center;
+}
+.login-pg {
+  text-align: center;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+
+.musicImg {
+  width: 50%;
+  height: 50%;
+}
+.search-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.search-form {
+  align-items: center;
+  background-color: rgb(255, 255, 255);
+  border-radius: 20px;
+  border: solid 1px;
+  display: flex;
+  height: 15vw;
+  justify-content: center;
+  margin-top: 20px;
+  width: 35vw;
+}
+.title-search {
+  text-align: center;
+}
+
+body {
+  background-color: rgb(0, 0, 0);
+  display: flex;
+}
+ 
+.handsImg {
+  position: fixed;
+  right: 20px;
+  bottom: 1px;
+  width: 50vh;
+  height: 50vh;
+  z-index: -1;
+  
+}
+
+.album-link {
+  align-items: center;
+  background-color: rgb(255, 255, 255);
+  border-radius: 20px;
+  border: solid 1px;
+  display: flex;
+  height: 15vw;
+  justify-content: space-evenly;
+  margin-top: 20px;
+  width: 25vw;
+  text-decoration: none;
+}
+
+.album-link:hover {
+  width: 27vw;
+  height: 17vw;
+}
+
+.albuns-div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.div-album {
+  display: flex;
+}
+
+.albunsImg {
+  width: 40%;
+  height: 40%;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.albunsName {
+  color: black;
+    text-decoration: wavy;
+    text-align: center;
+    margin-right: 5px;
+}
+
+.result-title{
+  color: white;
+  text-align: center;
+  font-size: 30px;
+}
+
+.album-info {
+  margin-right: 15vh;
+  border-radius: 20px;
+  border: 1px solid white;
+  width: 35vh;
+  height: 33vh;
+  text-align: center;
+}
+
+.Informations {
+  color: white;
+  display: flex;
+  margin: 20px 0;
+  justify-content: space-between;
+  
+}
+
+.musicsList, .favorits-sec {
+  direction:rtl;
+  overflow: overlay;
+  max-height: 90vh;
+  width: 50vh;
+  bottom: 1px;
+  margin: 0 5px;
+}
+
+.album-img {
+  width: 20vh;
+  height: 20vh;
+}
+
+.musicDiv {
+  text-align: end;
+  padding-left: 10%;
+  border-bottom: solid 1px;
+  padding-bottom: 2%;
+}
+.favorites-sec {
+  color: white;
+  display: flex;
+}
+.favorits-p{
+  font-size: 10vh;
+  margin-left: 10px;
+  margin-top: 0px;
+  text-align: center;
+  width: 50vh;
+}
+
+.user-sec {
+  background-color: rgb(255, 255, 255);
+  border-radius: 20px;
+  display: flex;
+  height: 40vw;
+  justify-content: space-evenly;
+  margin-top: 20px;
+  width: 35vw;
+  flex-direction: column;
+  padding-left: 5vh;
+  box-sizing: border-box;
+}
+.user-info {
+  display: flex;
+  justify-content: center;
+}
+
+.user-img-div {
+  display: flex;
+  flex-direction: inherit;
+  align-items: center;
+  height: 30%;
+  justify-content: space-between;
+  margin-right: 5vh;
+}
+
+.user-img{
+  width: 10vh;
+  height: 11vh;
+  border-radius: 100%;
+}
+
+.user-sec-form {
+  display: flex;
+  justify-content: center;
+}
+
+.form-edit{
+  background-color: rgb(255, 255, 255);
+  border-radius: 20px;
+  display: flex;
+  height: 40vw;
+  justify-content: space-evenly;
+  margin-top: 20px;
+  width: 35vw;
+  flex-direction: column;
+  box-sizing: border-box;
+  align-items: center;
+}
