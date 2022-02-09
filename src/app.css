@@ -175,13 +175,12 @@ body {
   background-color: rgb(255, 255, 255);
   border-radius: 20px;
   display: flex;
-  height: 40vw;
+  height: 400px;
   justify-content: space-evenly;
   margin-top: 20px;
-  width: 35vw;
+  width: 300px;
   flex-direction: column;
   padding-left: 5vh;
-  box-sizing: border-box;
 }
 .user-info {
   display: flex;
@@ -212,10 +211,10 @@ body {
   background-color: rgb(255, 255, 255);
   border-radius: 20px;
   display: flex;
-  height: 40vw;
+  height: 400px;
   justify-content: space-evenly;
   margin-top: 20px;
-  width: 35vw;
+  width: 300px;
   flex-direction: column;
   box-sizing: border-box;
   align-items: center;
