@@ -36,17 +36,19 @@ export default class Favorites extends React.Component {
     const check = true;
     return (
       <>
-        <section className="favorits-sec">
-          {favorites.map((music) => (
-            <MusicCard
-              key={ music.trackName }
-              music={ music }
-              onClick={ this.onCheck }
-              checked={ check }
-            />
-          ))}
-        </section>
-        <p className="favorits-p">Minhas musicas favoritas</p>
+        <div className="musics">
+          <section className="musicsList">
+            {favorites.map((music) => (
+              <MusicCard
+                key={ music.trackName }
+                music={ music }
+                onClick={ this.onCheck }
+                checked={ check }
+              />
+            ))}
+          </section>
+        </div>
+        <span className="favorits-text">Minhas musicas favoritas</span>
       </>
     );
   }

@@ -36,6 +36,7 @@
   justify-content: center;
   margin-top: 20px;
   width: 35vw;
+  font-size: 26px;
 }
 .title-search {
   text-align: center;
@@ -110,23 +111,40 @@ body {
   width: 35vh;
   height: 33vh;
   text-align: center;
+  color: white;
+  font-family: friendish;
+  font-weight: bold;
 }
 
 .Informations {
   color: white;
   display: flex;
   margin: 20px 0;
-  justify-content: space-between;
-  
 }
 
-.musicsList, .favorits-sec {
-  direction:rtl;
+.musics-album, .favorites-sec {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.musics {
+  border-radius: 20px;
+  border: 1px solid white;
+  width: 50%;
+  height: 80vh;
+  padding-left: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.musicsList {
+  direction: rtl;
   overflow: overlay;
-  max-height: 90vh;
-  width: 50vh;
-  bottom: 1px;
-  margin: 0 5px;
+  width: 100%;
+  height: 90%;
+  color: white;
+  box-sizing: border-box;
 }
 
 .album-img {
@@ -139,17 +157,18 @@ body {
   padding-left: 10%;
   border-bottom: solid 1px;
   padding-bottom: 2%;
+  font-family: friendish;
+  font-weight: bold;
 }
-.favorites-sec {
-  color: white;
-  display: flex;
+.page-favorites{
+  width: 100%;
 }
-.favorits-p{
+.favorits-text{
   font-size: 10vh;
-  margin-left: 10px;
-  margin-top: 0px;
   text-align: center;
-  width: 50vh;
+  width: 50%;
+  color: white;
+  font-family: friendish;
 }
 
 .user-sec {
@@ -200,4 +219,8 @@ body {
   flex-direction: column;
   box-sizing: border-box;
   align-items: center;
+}
+@font-face {
+  font-family: friendish;
+  src: url('./fonts/RWAFriendish-Regular.otf');
 }

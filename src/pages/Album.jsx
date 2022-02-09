@@ -65,7 +65,7 @@ export default class Album extends React.Component {
   createCards = () => {
     const { musicsList, checked } = this.state;
     return (
-      <section className="musics">
+      <section>
         {musicsList.map((music) => (
           <MusicCard
             key={ music.trackName }
@@ -84,9 +84,11 @@ export default class Album extends React.Component {
     // musicsList.shift();
     const { artistName, artworkUrl100, collectionName } = album;
     return (
-      <div className="Informations">
-        <div className="musicsList">
-          {loading ? <Charging /> : this.createCards()}
+      <>
+        <div className="musics">
+          <div className="musicsList">
+            {loading ? <Charging /> : this.createCards()}
+          </div>
         </div>
         <div className="album-info">
           <p data-testid="album-name">{ collectionName }</p>
@@ -97,7 +99,7 @@ export default class Album extends React.Component {
             alt="imagem do album"
           />
         </div>
-      </div>
+      </>
     );
   }
 
