@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/TrybeTunes/static/css/main.55adfd01.chunk.css",
+    "main.js": "/TrybeTunes/static/js/main.d2959232.chunk.js",
+    "main.js.map": "/TrybeTunes/static/js/main.d2959232.chunk.js.map",
+    "runtime-main.js": "/TrybeTunes/static/js/runtime-main.1b2e4d05.js",
+    "runtime-main.js.map": "/TrybeTunes/static/js/runtime-main.1b2e4d05.js.map",
+    "static/js/2.d40a5ab9.chunk.js": "/TrybeTunes/static/js/2.d40a5ab9.chunk.js",
+    "static/js/2.d40a5ab9.chunk.js.map": "/TrybeTunes/static/js/2.d40a5ab9.chunk.js.map",
+    "index.html": "/TrybeTunes/index.html",
+    "static/css/main.55adfd01.chunk.css.map": "/TrybeTunes/static/css/main.55adfd01.chunk.css.map",
+    "static/js/2.d40a5ab9.chunk.js.LICENSE.txt": "/TrybeTunes/static/js/2.d40a5ab9.chunk.js.LICENSE.txt",
+    "static/media/app.css": "/TrybeTunes/static/media/RWAFriendish-Regular.79c5dc5d.otf",
+    "static/media/backImg.e3b00fc7.png": "/TrybeTunes/static/media/backImg.e3b00fc7.png",
+    "static/media/giphy.5bfa06c9.gif": "/TrybeTunes/static/media/giphy.5bfa06c9.gif",
+    "static/media/simbolo.46343b8c.svg": "/TrybeTunes/static/media/simbolo.46343b8c.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.1b2e4d05.js",
+    "static/js/2.d40a5ab9.chunk.js",
+    "static/css/main.55adfd01.chunk.css",
+    "static/js/main.d2959232.chunk.js"
+  ]
+}
